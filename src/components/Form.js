@@ -19,8 +19,8 @@ class Form extends Component {
         /*
             TODO - Logic for changing state based on form changes
         */
-        console.log(event.target)
-        console.log("input updated!")
+        // console.log(event.target)
+        // console.log("input updated!")
         this.setState({[event.target.name]: event.target.value})
 
     }
@@ -30,7 +30,7 @@ class Form extends Component {
     //         TODO - Logic for changing state based on form changes
     //     */
     //     console.log(event.target)
-    //     console.log("input updated!")
+    //     console.log("some input")
     //     this.setState({URL: event.target.value})
 
     // }
@@ -45,13 +45,19 @@ class Form extends Component {
         /*
             TODO - Logic for calling props to handle submission and setting state changes
         */
+       this.props.handleSubmit(this.state)
+
+       this.setState({
+           name: '',
+           URL: ''
+       })
 
     }
 
     render() {
 
         return(
-            <form>
+            <form >
                 {/* TODO - Logic for returning a form element with labels and inputs for link name and URL */}
                 <label>Name</label>
                 <input type="text" name="name" onChange={this.handleChange} value={this.state.name}></input>
